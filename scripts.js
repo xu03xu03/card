@@ -1,4 +1,3 @@
-// 切換介紹內容顯示狀態的函數
 function toggleDescription(button) {
     const card = button.parentElement; // 獲取按鈕的父元素卡片
     card.classList.toggle('show'); // 切換 'show' 類
@@ -11,9 +10,10 @@ function toggleDescription(button) {
         // 當用戶按下1、2或3按鈕時調用這個函數
         function markCard(button, choice) {
             // 獲取按鈕所在的卡片元素
-            var card = button.parentElement;
+            var card = button.closest('.card');
             // 獲取卡片上的字母
             var letter = card.getAttribute('data-letter');
+            
 
             // 如果該卡片已經被選擇，則返回
             if (selections.some(selection => selection.letter === letter)) {
@@ -24,6 +24,7 @@ function toggleDescription(button) {
             if (selections.length >= 3) {
                 return;
             }
+// 切換介紹內容顯示狀態的函數
 
             // 在selections數組中添加這張卡片的選擇
             selections.push({ letter: letter, choice: choice });
@@ -38,7 +39,7 @@ function toggleDescription(button) {
         // 當用戶按下取消按鈕時調用這個函數
         function unmarkCard(button) {
             // 獲取按鈕所在的卡片元素
-            var card = button.parentElement;
+            var card = button.closest('.card');
             // 獲取卡片上的字母
             var letter = card.getAttribute('data-letter');
 
@@ -69,5 +70,15 @@ function toggleDescription(button) {
 
             // 更新結果顯示區域的文本
             document.getElementById("result").innerText = resultText.trim();
+
+            // 檢查是否已選擇三個卡片
+            if (selections.length === 3) {
+                // 顯示結果按鈕
+                document.getElementById("resultButton").style.display = 'block';
+            } else {
+                // 隱藏結果按鈕
+                document.getElementById("resultButton").style.display = 'none';
+            }
         }
+        
   
