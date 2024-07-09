@@ -137,3 +137,17 @@ h1{
 .card.selected {
   background-color: #d0ffd0; /* 選擇後卡片的背景顏色 */
 }
+.result-button {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #d0ffd0;
+  box-shadow:1px 1px 5px 2px #adb5bd;
+  color: #6c757d;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;/* 游標樣式 */
+}
